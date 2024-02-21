@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sàn thương mại điện tử số 1 việt nam</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20201229/pngtree-stylish-luxury-white-minimalist-polygonal-decoration-background-with-silver-lines-in-image_518040.jpg   ');
+            background-repeat: repeat;
+            background-size: contain; /* hoặc contain tùy thuộc vào sự lựa chọn của bạn */
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+<th:block th:replace="~{web/header-home::header_home}">
+
+</th:block>
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <img src="https://png.pngtree.com/thumb_back/fw800/background/20230717/pngtree-d-rendered-luxury-classic-analog-men-s-white-wristwatch-with-a-image_3891046.jpg" style="height: 390px;">
+            </div>
+            <div class="col-3">
+                <img src="https://media.istockphoto.com/id/134138920/vi/anh/ng%C6%B0%E1%BB%9Di-m%E1%BA%ABu-nam-da-%C4%91en-t%E1%BA%A1o-d%C3%A1ng-v%E1%BB%9Bi-%C4%91%E1%BB%93ng-h%E1%BB%93-%C4%91eo-tay-thi%E1%BA%BFt-k%E1%BA%BF.jpg?s=1024x1024&w=is&k=20&c=be-jrL7tCVtkHtgEpJ6pruIdyI3C-_kCBZaeodRrt5M=">
+            </div>
+            <div class="col-3">
+                <img src="images/category-3.jpg">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ------- featured products ------- -->
+<div class="small-container">
+    <h2 class="title">Featured Products</h2>
+    <div class="row">
+
+        <th:block th:each="p : ${listtop8product}">
+
+            <div class="col-4">
+                <a th:href="@{'/product-detail/'+${p.id}+'/'+${p.category.id}}">
+                    <img th:src="@{'/api/uploadfile/upload/' + ${p.thumbnailPhoto}}"></a>
+                <h4>[[${p.name}]]</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>[[${p.price}]] $</p>
+            </div>
+
+        </th:block>
+
+    </div>
+    <h2 class="title">Latest Products</h2>
+    <div class="row">
+        <th:block th:each="p : ${listlast4product}">
+            <div class="col-4">
+                <a th:href="@{'/product-detail/'+${p.id}+'/'+${p.category.id}}">
+                    <img th:src="@{'/api/uploadfile/upload/' + ${p.thumbnailPhoto}}"></a>
+                <h4>[[${p.Name}]]</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>[[${p.price}]] $</p>
+            </div>
+        </th:block>
+    </div>
+</div>
+
+<!-- ------- offer ------- -->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="images/exclusive.png" class="offer-img">
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on RedStore</p>
+                <h1>Smart Band 4</h1>
+                <small>The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED
+                    color full-touch display with adjustable brightness,
+                    so everything is clear as can be.</small>
+                <br>
+                <a href="/product-detail/47/10" class="btn">Buy Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ------- testimonial ------- -->
+
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Đoàn kết là chết hết.</br>
+                    Hoặc là cuộc đời nở hoa, hai là cuộc sống bế tắc.
+
+                </p>
+
+
+
+
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-1.png">
+                <h3>Nguyễn Đức Nhật Anh</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p> Muốn đi riêng thì đi một mình</br>
+                    Muồn đi chung thì đi cùng nhau </p>
+
+
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-2.png">
+                <h3>Nguyễn Đức Thọ</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>Những bí kíp để tán gái trong giang hồ được lưu truyền đến bây giờ :</br>
+                    ~ Đô La chưởng</br>
+                    ~ Erou chỉ</br>
+                    ~ Kim cương chảo</br>
+
+                    Ưu điểm: Rất nhiều t.iền</br>
+                    còn nhược điểm : Có rất nhiều ưu điểm</p>
+
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-3.png">
+                <h3>Mabel John</h3>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- ------- brands ------- -->
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-5">
+                <img src="images/logo-godrej.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="images/logo-oppo.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="images/logo-coca-cola.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="images/logo-paypal.png" alt="">
+            </div>
+            <div class="col-5">
+                <img src="images/logo-philips.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{web/footer::footer}">
+
+</th:block>
+
+<!-- -------- js for toggle menu -------- -->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight ="0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px"){
+            MenuItems.style.maxHeight ="200px"
+        }
+        else{
+            MenuItems.style.maxHeight ="0px"
+        }
+    }
+</script>
+</body>
+</html>

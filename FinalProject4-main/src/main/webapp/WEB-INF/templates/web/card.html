@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sàn thương mại điện tử số 1 việt nam</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" th:href="@{/css/userprofile.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body style="font-size: 16px">
+<div th:replace="~{web/header::header}"></div>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row" style="align-items: start!important; justify-content: normal;">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <th:block th:if="${session.info.linkAVT == null}">
+                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                </th:block>
+                <th:block th:if="${session.info.linkAVT}">
+                    <img class="rounded-circle mt-5" width="150px" th:src="@{'/api/uploadfile/upload/' + ${session.info.linkAVT}}">
+                </th:block>
+                <span class="font-weight-bold">[[${session.info.fullname}]]</span>
+                <span class="text-black-50">[[${session.info.email}]]</span>
+                <br><br>
+                <div>
+
+                    <a href="/profile" style="text-decoration: none"> <i class="bi bi-backspace" style="margin-right: 3px"></i> Go Back to Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 border-right" style="flex: 2 0 auto; padding-top: 30px">
+            <th:block th:if="${message}">
+                <h4 style="color: #0c8940">[[${message}]]</h4>
+            </th:block>
+            <div class="container" style="width: 100%">
+                <div style="position: relative">
+                    <h2>Your Card</h2>
+                    <th:block th:if="${ListCard.size() < 10}">
+                    <a href="#addEmployeeModal" class="add" data-toggle="modal" style="  position: absolute; top: 0px; right: 0px; padding: 10px; text-decoration: none;"><i class="bi bi-plus-circle" ></i>
+                        <span>New Card</span></a>
+                    </th:block>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Bank</th>
+                        <th>Card Number</th>
+                        <th style="text-align: end;">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:if="${ListCard.size() > 0}">
+                    <th:block th:each="i: ${#numbers.sequence(0, ListCard.size()-1)}">
+                    <tr th:with="card=${ListCard.get(i)}">
+                        <td>[[${i + 1}]]</td>
+                        <td>[[${card.bank}]]</td>
+                        <td>[[${card.number}]]</td>
+                        <td style="text-align: end;"><a href="#editEmployeeModal" th:onclick="Edit([[${card.id}]], [[${card.bank}]], [[${card.number}]])" class="edit" data-toggle="modal">
+                            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#deleteEmployeeModal" th:onclick="Delete([[${card.id}]])" class="delete" data-toggle="modal">
+                                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    </th:block>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="clearfix" style="padding: 20px">
+                <div class="hint-text">
+                    You can have 10 address
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal HTML -->
+<div id="addEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/add-card">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Card</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Bank</label>
+                        <input type="text" id="addBank" name="addBank" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" id="addNumber" name="addNumber" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success" value="Add">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/edit-card">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Card</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Bank</label>
+                            <input type="text" id="editBank" name="editBank" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" id="editNumber" name="editNumber" class="form-control" required>
+                        </div>
+                        <input type="hidden" id="editID" name="editID" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/delete-card">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Card</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this Card?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                    <input type="hidden" id="deleteID" name="deleteID" required>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{web/footer::footer}"></div>
+
+<!-- -------- js for toggle menu -------- -->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+            MenuItems.style.maxHeight = "200px"
+        }
+        else {
+            MenuItems.style.maxHeight = "0px"
+        }
+    }
+</script>
+
+<script>
+    function Edit(id, bank, number){
+        document.getElementById('editID').value = id;
+        document.getElementById('editBank').value = bank;
+        document.getElementById('editNumber').value = number;
+    }
+</script>
+
+<script>
+    function Delete(id){
+        document.getElementById('deleteID').value = id;
+    }
+</script>
+
+</body>
+</html>
