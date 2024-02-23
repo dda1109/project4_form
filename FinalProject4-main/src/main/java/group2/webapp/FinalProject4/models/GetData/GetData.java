@@ -28,31 +28,31 @@ public class GetData {
     public void getDataForDatabase(){
         //add Category;
         Category c1= new Category();
-        c1.setName("Đồng Hồ");
+        c1.setName("Adidas");
 
         Category c2= new Category();
-        c2.setName("Ví Cầm Tay");
+        c2.setName("Nike");
 
         Category c3= new Category();
-        c3.setName("Ví Dài");
+        c3.setName("MLB");
 
         Category c4= new Category();
-        c4.setName("Balo");
+        c4.setName("Puma");
 
         Category c5= new Category();
-        c5.setName("Thắt Lưng");
+        c5.setName("Vans");
 
         Category c6= new Category();
-        c6.setName("Giày");
+        c6.setName("Balenciaga");
 
         Category c7= new Category();
-        c7.setName("Dép");
+        c7.setName("Converse");
 
         Category c8= new Category();
-        c8.setName("Vớ");
+        c8.setName("Fila");
 
         Category c9= new Category();
-        c9.setName("Nón");
+        c9.setName("Asics");
 
 
         categoryRepository.save(c1);
@@ -444,19 +444,19 @@ public class GetData {
         User u6 = new User();
         User u7 = new User();
 
-        u1.setUserName("kietnguyen123");
-        u2.setUserName("nghiemnguyen123");
-        u3.setUserName("thangpham123");
-        u4.setUserName("kiet78911");
-        u5.setUserName("kiet789");
+        u1.setUserName("admin1");
+        u2.setUserName("admin2");
+        u3.setUserName("admin3");
+        u4.setUserName("admin4");
+        u5.setUserName("admin5");
         u6.setUserName("admin");
         u7.setUserName("seller");
 
-        u1.setPassWord("key1");
-        u2.setPassWord("nghiem123");
-        u3.setPassWord("thang123");
-        u4.setPassWord("kiet789");
-        u5.setPassWord("kiet789");
+        u1.setPassWord("admin1");
+        u2.setPassWord("admin2");
+        u3.setPassWord("admin3");
+        u4.setPassWord("admin4");
+        u5.setPassWord("admin5");
         u6.setPassWord("admin");
         u7.setPassWord("seller");
 
