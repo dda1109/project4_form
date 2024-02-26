@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
---
--- Host: localhost    Database: project_final_oop
--- ------------------------------------------------------
--- Server version	8.0.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -178,7 +173,7 @@ CREATE TABLE `customer_info` (
 
 LOCK TABLES `customer_info` WRITE;
 /*!40000 ALTER TABLE `customer_info` DISABLE KEYS */;
-INSERT INTO `customer_info` VALUES (1,'2001-01-04','kiet@gmail.com','Kiet',NULL,'934567',3),(2,'2001-01-04','kukietkaka105@gmail.com','Kiet Nguyen','7d70a5e44c9e44369cab01b4b8ebbf8b.png','966955940',4),(3,'2022-05-06','kukietkaka105@gmail.com','Kiet Nguyen','5edafbfb53ea48e19f509e44c7ef4551.png','966955940',5),(4,NULL,'admin@web.home','admin',NULL,NULL,1),(5,NULL,'seller@web.home','seller',NULL,NULL,2),(6,'2022-05-06','kiet@gmail.com','Kiet','6e687c5550c84701802e6816adff1102.png','0973274231',6),(7,'2022-05-24','kiet@gmail.com','Kiet','1c0e0a8c6a404850b54a2e9d94ccb2ff.png','0973274231',8),(8,'2022-05-14','thang@gmail.com','thang','c2bfa5bfb9b34b4eb146da19ab141939.png','0973274231',14),(9,'2022-05-21','thang@gmail.com','thang','549febb32c024bf88ab14de23adcf38c.png','0973274231',11),(10,'2022-05-28','nghiem@gmail.com','nghiem','7825c9a4c1b94235b5a025a295067825.png','0973274231',22);
+INSERT INTO `customer_info` VALUES (1,'2001-01-04','danh@gmail.com','Danh',NULL,'934567',3),(2,'2001-01-04','kukietkaka105@gmail.com','Kiet Nguyen','7d70a5e44c9e44369cab01b4b8ebbf8b.png','966955940',4),(3,'2022-05-06','kukietkaka105@gmail.com','Kiet Nguyen','5edafbfb53ea48e19f509e44c7ef4551.png','966955940',5),(4,NULL,'admin@web.home','admin',NULL,NULL,1),(5,NULL,'seller@web.home','seller',NULL,NULL,2),(6,'2022-05-06','kiet@gmail.com','Kiet','6e687c5550c84701802e6816adff1102.png','0973274231',6),(7,'2022-05-24','kiet@gmail.com','Kiet','1c0e0a8c6a404850b54a2e9d94ccb2ff.png','0973274231',8),(8,'2022-05-14','thang@gmail.com','thang','c2bfa5bfb9b34b4eb146da19ab141939.png','0973274231',14),(9,'2022-05-21','thang@gmail.com','thang','549febb32c024bf88ab14de23adcf38c.png','0973274231',11),(10,'2022-05-28','nghiem@gmail.com','nghiem','7825c9a4c1b94235b5a025a295067825.png','0973274231',22);
 /*!40000 ALTER TABLE `customer_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +288,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin',3,1,'admin'),(2,'seller',2,1,'seller'),(3,'thangpham123',1,0,'thang123'),(4,'kietnguyen123',1,1,'key123'),(5,'nghiemnguyen123',1,1,'nghiem123'),(6,'kiet789',1,1,'kiet789'),(7,'kiet78911',1,1,'kiet789'),(8,'nguyen190',1,1,'nguyen190'),(9,'kietnguyen1234',1,1,'key1234'),(10,'nghiemnguyen1234',1,1,'nghiem1234'),(11,'thangpham1234',1,1,'thang1234'),(12,'kietnguyen1235',1,1,'key1235'),(13,'nghiemnguyen1235',1,1,'nghiem125'),(14,'thangpham1235',1,1,'thang125'),(15,'kietnguyen1236',1,1,'key126'),(16,'nghiemnguyen1236',1,1,'nghiem126'),(17,'thangpham1236',1,1,'thang126'),(18,'nghiemnguyen1237',1,1,'key1235'),(19,'thangpham1237',1,1,'nghiem125'),(20,'kietnguyen1237',1,1,'thang125'),(21,'nghiemnguyen1238',1,1,'key126'),(22,'thangpham1238',1,1,'nghiem126'),(23,'nghiemnguyen1238',1,1,'thang126');
+INSERT INTO `user` VALUES (1,'admin',3,1,'admin'),(2,'seller',2,1,'seller'),(3,'danh123',1,0,'danh123'),(4,'ddanh123',1,1,'key123'),(5,'nghiemnguyen123',1,1,'nghiem123'),(6,'danh789',1,1,'danh789'),(7,'danh78911',1,1,'danh789'),(8,'nguyen190',1,1,'nguyen190'),(9,'ddanh1234',1,1,'key1234'),(10,'nghiemnguyen1234',1,1,'nghiem1234'),(11,'thangpham1234',1,1,'thang1234'),(12,'danhnguyen1235',1,1,'key1235'),(13,'nghiemnguyen1235',1,1,'nghiem125'),(14,'thangpham1235',1,1,'thang125'),(15,'danhnguyen1236',1,1,'key126'),(16,'nghiemnguyen1236',1,1,'nghiem126'),(17,'thangpham1236',1,1,'thang126'),(18,'nghiemnguyen1237',1,1,'key1235'),(19,'thangpham1237',1,1,'nghiem125'),(20,'danhnguyen1237',1,1,'thang119'),(21,'nghiemnguyen1238',1,1,'key126'),(22,'thangpham1238',1,1,'nghiem126'),(23,'nghiemnguyen1238',1,1,'thang126');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -306,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-26 10:24:44
+
